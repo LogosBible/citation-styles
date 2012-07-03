@@ -638,7 +638,7 @@
     <choose>
       <if variable="locator" match="none">
         <choose>
-          <if type="article-journal chapter paper-conference" match="any">
+          <if type="article-journal chapter paper-conference book" match="any">
             <text variable="page"/>
           </if>
         </choose>

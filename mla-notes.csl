@@ -563,7 +563,7 @@
       <if type="article-journal">
         <text variable="page" prefix=": "/>
       </if>
-      <else-if type="chapter paper-conference" match="any">
+      <else-if type="chapter paper-conference book" match="any">
         <text variable="page" prefix=", "/>
       </else-if>
     </choose>
