@@ -142,7 +142,7 @@
     </sort>
     <layout>
       <text macro="zotero2bibtexType" prefix=" @" suffix=""/>
-      <group prefix="{" suffix="}" delimiter=", ">
+      <group prefix="{" suffix="}" delimiter=",&lt;br /&gt;">
         <text macro="citeKey"/>
         <text variable="publisher-place" prefix=" place={" suffix="}"/>
         <!--Fix This-->
