@@ -424,9 +424,6 @@
             <text term="volume" form="short" text-case="capitalize-first" suffix=". " strip-periods="true"/>
             <number variable="volume" form="numeric"/>
           </group>
-          <group>
-            <text term="volume" form="short" prefix=" " suffix="." plural="true" strip-periods="true"/>
-          </group>
           <text macro="edition"/>
         </group>
       </else-if>
