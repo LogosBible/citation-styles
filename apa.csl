@@ -329,10 +329,17 @@
             <text term="volume" form="short" text-case="capitalize-first" suffix=". " strip-periods="true"/>
             <number variable="volume" form="numeric"/>
           </group>
-          <group>
-            <label variable="page" form="short" suffix=" "/>
-            <text variable="page"/>
-          </group>
+          <choose>
+            <if variable="verse">
+              <text variable="verse"/>
+            </if>
+            <else>
+              <group>
+                <label variable="page" form="short" suffix=" "/>
+                <text variable="page"/>
+              </group>
+            </else>
+          </choose>
         </group>
       </else-if>
       <else-if type="legal_case">
