@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" initialize-with-hyphen="true" page-range-format="expanded" demote-non-dropping-particle="sort-only" default-locale="en-US" name-delimiter=" – " names-delimiter=" – " delimiter-precedes-last="always" et-al-min="4" et-al-use-first="1" name-form="long" initialize-with=". " sort-separator=", ">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" initialize-with-hyphen="true" page-range-format="expanded" demote-non-dropping-particle="sort-only" name-delimiter=" &#8211; " names-delimiter=" &#8211; " delimiter-precedes-last="always" et-al-min="4" et-al-use-first="1" name-form="long" initialize-with=". " sort-separator=", ">
+  <!-- No "default-locale"; multilingual -->
   <info>
     <title>Pontifical Biblical Institute</title>
     <id>http://www.zotero.org/styles/pontifical-biblical-institute</id>
@@ -9,11 +10,11 @@
       <name>Devin Roza LC</name>
       <email>devin (.) roza (@) legionaries {.} org  (remove spaces and parenthesis/brackets but leave periods to get email)</email>
     </author>
-    <summary>The Pontifical Biblical Institute (Pontificio Istituto Biblico) style</summary>
-    <category field="theology"/>
     <category citation-format="note"/>
-    <updated>2011-11-16T12:42:52+00:00</updated>
-    <rights>This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/</rights>
+    <category field="theology"/>
+    <summary>The Pontifical Biblical Institute (Pontificio Istituto Biblico) style</summary>
+    <updated>2012-09-27T22:06:38+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale>
     <style-options punctuation-in-quote="false"/>
@@ -28,11 +29,17 @@
         <single>ed.</single>
         <multiple>ed.</multiple>
       </term>
+      <term name="page-range-delimiter">-</term>
     </terms>
   </locale>
   <macro name="author">
     <names variable="author">
       <name font-variant="small-caps"/>
+    </names>
+  </macro>
+  <macro name="author-bibliography">
+    <names variable="author">
+      <name font-variant="small-caps" name-as-sort-order="all"/>
     </names>
   </macro>
   <macro name="author-short">
@@ -49,6 +56,15 @@
       </if>
     </choose>
   </macro>
+  <macro name="reviewer-bibliography">
+    <choose>
+      <if type="paper-conference">
+        <names variable="translator">
+          <name font-variant="small-caps" name-as-sort-order="all"/>
+        </names>
+      </if>
+    </choose>
+  </macro>
   <macro name="reviewer-short">
     <choose>
       <if type="paper-conference">
@@ -60,7 +76,7 @@
   </macro>
   <macro name="editor">
     <choose>
-      <if type="chapter entry entry-dictionary entry-encyclopedia paper-conference">
+      <if type="chapter entry entry-dictionary entry-encyclopedia paper-conference" match="any">
       </if>
       <else-if variable="editor">
         <names variable="editor">
@@ -78,9 +94,28 @@
       </else>
     </choose>
   </macro>
+  <macro name="editor-bibliography">
+    <choose>
+      <if type="chapter entry entry-dictionary entry-encyclopedia paper-conference" match="any"/>
+      <else-if variable="editor">
+        <names variable="editor">
+          <name font-variant="small-caps" name-as-sort-order="all"/>
+          <et-al font-variant="normal"/>
+          <label form="short" prefix=" (" suffix=")" strip-periods="false" text-case="lowercase"/>
+        </names>
+      </else-if>
+      <else>
+        <names font-variant="small-caps" variable="collection-editor">
+          <name font-variant="small-caps" name-as-sort-order="all"/>
+          <et-al font-variant="normal"/>
+          <label form="short" prefix=" (" suffix=")" strip-periods="false" text-case="lowercase"/>
+        </names>
+      </else>
+    </choose>
+  </macro>
   <macro name="editor-short">
     <choose>
-      <if type="chapter entry entry-dictionary entry-encyclopedia paper-conference">
+      <if type="chapter entry entry-dictionary entry-encyclopedia paper-conference" match="any">
       </if>
       <else-if variable="editor">
         <names variable="editor">
@@ -136,6 +171,20 @@
       </if>
     </choose>
   </macro>
+  <macro name="contributors-bibliography">
+    <choose>
+      <if type="manuscript" match="none">
+        <choose>
+          <if variable="author">
+            <text macro="author-bibliography"/>
+          </if>
+          <else>
+            <text macro="editor-bibliography"/>
+          </else>
+        </choose>
+      </if>
+    </choose>
+  </macro>
   <macro name="contributors-short">
     <choose>
       <if type="manuscript" match="none">
@@ -160,6 +209,16 @@
       </choose>
     </group>
   </macro>
+  <macro name="contributors-reviewers-bibliography">
+    <group delimiter=", ">
+      <choose>
+        <if type="paper-conference">
+          <text macro="reviewer-bibliography"/>
+          <text variable="title" suffix=" "/>
+        </if>
+      </choose>
+    </group>
+  </macro>
   <macro name="contributors-reviewers-short">
     <group delimiter=", ">
       <choose>
@@ -179,7 +238,7 @@
   <macro name="title">
     <group delimiter=". ">
       <choose>
-        <if type="book thesis">
+        <if type="book thesis" match="any">
           <choose>
             <if variable="archive_location">
               <group delimiter=" ">
@@ -232,7 +291,7 @@
   </macro>
   <macro name="title-short">
     <choose>
-      <if type="book thesis">
+      <if type="book thesis" match="any">
         <text variable="title" form="short" font-style="italic"/>
       </if>
       <else-if type="paper-conference">
@@ -259,8 +318,8 @@
   </macro>
   <macro name="container-title">
     <choose>
-      <if type="entry entry-dictionary entry-encyclopedia">
-        <text variable="container-title" font-style="italic"/>
+      <if type="entry entry-dictionary entry-encyclopedia" match="any">
+        <text variable="container-title" font-style="italic" form="short"/>
         <choose>
           <if variable="volume">
             <text variable="volume" prefix=" "/>
@@ -289,12 +348,12 @@
           </if>
         </choose>
       </else-if>
-      <else-if type="article article-magazine article-newspaper article-journal">
-        <text variable="container-title" font-style="italic"/>
+      <else-if type="article article-magazine article-newspaper article-journal" match="any">
+        <text variable="container-title" font-style="italic" form="short"/>
         <choose>
           <if variable="note" match="none">
             <group delimiter="/" prefix=" ">
-              <text variable="volume"/>
+              <number variable="volume" form="numeric"/>
               <text variable="issue"/>
             </group>
           </if>
@@ -317,7 +376,7 @@
   </macro>
   <macro name="volume-number">
     <choose>
-      <if type="book chapter">
+      <if type="book chapter" match="any">
         <choose>
           <if is-numeric="volume">
             <number variable="volume" form="roman" text-case="uppercase"/>
@@ -422,7 +481,7 @@
           </else>
         </choose>
       </if>
-      <else-if type="entry entry-dictionary entry-encyclopedia">
+      <else-if type="entry entry-dictionary entry-encyclopedia" match="any">
       </else-if>
       <else-if type="thesis">
         <group prefix="(" suffix=")" delimiter=" ">
@@ -581,15 +640,16 @@
       </choose>
     </layout>
   </citation>
-  <bibliography subsequent-author-substitute="—">
+  <bibliography subsequent-author-substitute="&#8211;&#8211;&#8211;&#8211;">
     <sort>
-      <key macro="author"/>
+      <key macro="contributors-reviewers-bibliography"/>
+      <key macro="contributors-bibliography"/>
       <key variable="title"/>
     </sort>
     <layout suffix=".">
       <group delimiter=" ">
-        <text macro="contributors-reviewers"/>
-        <text macro="contributors" suffix=", "/>
+        <text macro="contributors-reviewers-bibliography"/>
+        <text macro="contributors-bibliography" suffix=", "/>
       </group>
       <group delimiter=", ">
         <text macro="title"/>

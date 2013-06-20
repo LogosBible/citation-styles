@@ -9,13 +9,13 @@
       <name>Julian Onions</name>
       <email>julian.onions@gmail.com</email>
     </author>
-    <summary>History journal style</summary>
-    <category citation-format="numeric"/>
+    <category citation-format="note"/>
     <category field="history"/>
     <issn>0018-246X</issn>
-    <issn>1469-5103</issn>
-    <updated>2011-05-12T00:16:08+00:00</updated>
-    <rights>This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/</rights>
+    <eissn>1469-5103</eissn>
+    <summary>History journal style</summary>
+    <updated>2012-09-27T22:06:38+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="author">
     <names variable="author">
@@ -65,13 +65,13 @@
   <macro name="title">
     <choose>
       <if type="thesis">
-        <text variable="title" form="short" prefix="‘" suffix="’"/>
+        <text variable="title" form="short" quotes="true"/>
       </if>
       <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
         <text variable="title" form="short" font-style="italic"/>
       </else-if>
       <else>
-        <text variable="title" form="short" prefix="‘" suffix="’"/>
+        <text variable="title" form="short" quotes="true"/>
       </else>
     </choose>
   </macro>

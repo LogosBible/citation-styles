@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="note" default-locale="fr-FR">
   <info>
-    <title>Lettres et Sciences Humaines Françaises (biblio et notes, French)</title>
+    <title>Lettres et Sciences Humaines (biblio et notes, French)</title>
     <id>http://www.zotero.org/styles/lettres-et-sciences-humaines-fr</id>
     <link href="http://www.zotero.org/styles/lettres-et-sciences-humaines-fr" rel="self"/>
-    <updated>2011-03-09T08:00:00+01:00</updated>
+    <link href="https://forums.zotero.org/discussion/16762/" rel="documentation"/>
     <author>
       <name>Alexandre Pinlou</name>
       <email>alexandre.pinlou@univ-montp3.fr</email>
     </author>
+    <category citation-format="note"/>
     <category field="humanities"/>
     <category field="literature"/>
-    <category citation-format="note"/>
-    <rights>This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/</rights>
+    <updated>2012-09-27T22:06:38+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="fr">
     <terms>
@@ -147,13 +148,13 @@
         <text variable="title" text-case="capitalize-first" font-style="italic"/>
       </if>
       <else>
-        <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»"/>
+        <text variable="title" text-case="capitalize-first" quotes="true"/>
       </else>
     </choose>
   </macro>
   <macro name="enligne">
     <choose>
-      <if variable="URL DOI" match="any">
+      <if variable="URL" match="any">
         <text value="en ligne : " prefix=" [" text-case="capitalize-first"/>
         <text variable="URL" suffix="]"/>
       </if>
@@ -386,9 +387,10 @@
   </macro>
   <macro name="collection">
     <group>
-      <text variable="collection-title" text-case="capitalize-first" prefix="(«&#160;" suffix="&#160;»"/>
-      <text variable="collection-number" prefix=", "/>
-      <text value=")"/>
+      <group delimiter=", " prefix="(" suffix=")">
+        <text variable="collection-title" text-case="capitalize-first" quotes="true"/>
+        <text variable="collection-number"/>
+      </group>
     </group>
   </macro>
   <macro name="access">
@@ -592,15 +594,15 @@
       </choose>
       <choose>
         <if type="webpage">
-          <text macro="enligne"/>
+          <group delimiter=". ">
+            <text macro="enligne"/>
+            <text macro="access"/>
+          </group>
         </if>
         <else>
           <text macro="enligne" prefix=", "/>
         </else>
       </choose>
-      <group prefix=". ">
-        <text macro="access"/>
-      </group>
     </layout>
   </bibliography>
 </style>

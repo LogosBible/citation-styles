@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="note" default-locale="fr" version="1.0" page-range-format="expanded" demote-non-dropping-particle="sort-only">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" default-locale="fr-FR" version="1.0" page-range-format="expanded" demote-non-dropping-particle="sort-only">
   <info>
     <title>Vingtième Siècle. Revue d'histoire (French)</title>
     <id>http://www.zotero.org/styles/vingtieme-siecle</id>
     <link href="http://www.zotero.org/styles/vingtieme-siecle" rel="self"/>
+    <link href="http://www.cairn.info/en-savoir-plus-sur-la-revue-vingtieme-siecle-revue-d-histoire.htm" rel="documentation"/>
     <author>
       <name>Franziska Heimburger</name>
       <email>zotero@franziska.fr</email>
     </author>
-    <issn>0294-1759</issn>
-    <category field="social_science"/>
     <category citation-format="note"/>
-    <updated>2012-05-04T17:16:03+00:00</updated>
-    <link href="http://www.cairn.info/en-savoir-plus-sur-la-revue-vingtieme-siecle-revue-d-histoire.htm" rel="documentation"/>
-    <rights>This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/</rights>
+    <category field="social_science"/>
+    <issn>0294-1759</issn>
+    <updated>2012-09-27T22:06:38+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="fr">
     <terms>
@@ -71,7 +71,7 @@
       </if>
       <else-if type="article-journal article-newspaper article-magazine" match="any">
         <group delimiter=", ">
-          <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»" font-style="normal"/>
+          <text variable="title" text-case="capitalize-first" quotes="true" font-style="normal"/>
           <text variable="container-title" font-style="italic"/>
         </group>
       </else-if>
@@ -84,13 +84,15 @@
       </else-if>
       <else-if type="manuscript" match="any">
         <group delimiter=",">
-          <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»" font-style="normal"/>
+          <text variable="title" text-case="capitalize-first" quotes="true" font-style="normal"/>
           <text variable="genre" prefix=" "/>
         </group>
       </else-if>
       <else-if type="chapter entry-dictionary entry-encyclopedia" match="any">
         <group delimiter="">
-          <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»,"/>
+          <group suffix=",">
+            <text variable="title" text-case="capitalize-first" quotes="true"/>
+          </group>
           <text value="in" font-style="italic" suffix=" " prefix=" "/>
           <text macro="editor" suffix=", "/>
           <text variable="container-title" text-case="capitalize-first" font-style="italic"/>
@@ -103,7 +105,7 @@
         </group>
       </else-if>
       <else>
-        <text variable="title" prefix="«&#160;" suffix="&#160;»"/>
+        <text variable="title" quotes="true"/>
       </else>
     </choose>
   </macro>
@@ -297,7 +299,7 @@
           </else>
         </choose>
       </if>
-      <else-if type="article-journal article-magazine">
+      <else-if type="article-journal article-magazine" match="any">
         <group delimiter="" font-style="normal">
           <choose>
             <if variable="issued">
@@ -342,11 +344,15 @@
   <macro name="collection">
     <choose>
       <if is-numeric="collection-number">
-        <text variable="collection-title" prefix=" coll.&#160;«&#160;" suffix="&#160;»"/>
+        <group prefix=" coll.">
+          <text variable="collection-title" quotes="true"/>
+        </group>
         <text variable="collection-number" prefix=", n˚&#160;"/>
       </if>
       <else>
-        <text variable="collection-title" prefix=" coll.&#160;«&#160;" suffix="&#160;»"/>
+        <group prefix=" coll.">
+          <text variable="collection-title" quotes="true"/>
+        </group>
       </else>
     </choose>
   </macro>
@@ -370,7 +376,7 @@
                 <text variable="title" form="short" font-style="italic"/>
               </if>
               <else>
-                <text variable="title" text-case="capitalize-first" form="short" prefix="«&#160;" suffix="&#160;»" font-style="normal"/>
+                <text variable="title" text-case="capitalize-first" form="short" quotes="true" font-style="normal"/>
               </else>
             </choose>
             <text term="cited" font-style="italic" suffix="."/>

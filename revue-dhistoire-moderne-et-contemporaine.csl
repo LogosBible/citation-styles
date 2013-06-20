@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="note" default-locale="fr" version="1.0" page-range-format="expanded">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" default-locale="fr-FR" version="1.0" page-range-format="expanded">
   <info>
     <title>Revue d'histoire moderne et contemporaine (French)</title>
+    <id>http://www.zotero.org/styles/revue-dhistoire-moderne-et-contemporaine</id>
+    <link href="http://www.zotero.org/styles/revue-dhistoire-moderne-et-contemporaine" rel="self"/>
+    <link href="http://www.cairn.info/revue-d-histoire-moderne-et-contemporaine.htm" rel="documentation"/>
     <author>
       <name>Franziska Heimburger</name>
       <email>zotero@franziska.fr</email>
     </author>
-    <id>http://www.zotero.org/styles/revue-dhistoire-moderne-et-contemporaine</id>
-    <link href="http://www.zotero.org/styles/revue-dhistoire-moderne-et-contemporaine" rel="self"/>
-    <link href="http://www.cairn.info/revue-d-histoire-moderne-et-contemporaine.htm" rel="documentation"/>
-    <category field="social_science"/>
-    <category field="generic-base"/>
     <category citation-format="note"/>
+    <category field="social_science"/>
     <issn>0048-8003</issn>
-    <issn>1776-3045</issn>
-    <updated>2011-10-29T08:00:01+00:00</updated>
-    <rights>This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/</rights>
+    <eissn>1776-3045</eissn>
+    <updated>2012-09-27T22:06:38+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="fr">
     <terms>
@@ -113,7 +112,7 @@
       </if>
       <else-if type="article-journal article-newspaper article-magazine" match="any">
         <group delimiter=", ">
-          <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»" font-style="normal"/>
+          <text variable="title" text-case="capitalize-first" quotes="true" font-style="normal"/>
           <text variable="container-title" font-style="italic"/>
         </group>
       </else-if>
@@ -126,13 +125,15 @@
       </else-if>
       <else-if type="manuscript" match="any">
         <group delimiter=",">
-          <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»" font-style="normal"/>
+          <text variable="title" text-case="capitalize-first" quotes="true" font-style="normal"/>
           <text variable="genre" prefix=" "/>
         </group>
       </else-if>
       <else-if type="chapter entry-dictionary entry-encyclopedia" match="any">
         <group delimiter="">
-          <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»,"/>
+          <group suffix=",">
+            <text variable="title" text-case="capitalize-first" quotes="true"/>
+          </group>
           <text value="in" font-style="italic" suffix=" " prefix=" "/>
           <text macro="editor" suffix=", "/>
           <text variable="container-title" text-case="capitalize-first" font-style="italic"/>
@@ -140,7 +141,7 @@
       </else-if>
       <else-if type="webpage" match="any">
         <group delimiter=", ">
-          <text variable="title" text-case="capitalize-first" prefix="«&#160;" suffix="&#160;»"/>
+          <text variable="title" text-case="capitalize-first" quotes="true"/>
           <text variable="container-title" text-case="capitalize-first" font-style="italic"/>
           <date variable="issued">
             <date-part name="day" suffix=" "/>
@@ -151,7 +152,7 @@
         </group>
       </else-if>
       <else>
-        <text variable="title" prefix="«&#160;" suffix="&#160;»"/>
+        <text variable="title" quotes="true"/>
       </else>
     </choose>
   </macro>
@@ -287,7 +288,7 @@
         </choose>
         <text macro="issue" prefix=", "/>
       </if>
-      <else-if type="article-journal article-magazine">
+      <else-if type="article-journal article-magazine" match="any">
         <group delimiter=", " font-style="normal">
           <text macro="voljournal"/>
           <date variable="issued">
@@ -341,11 +342,15 @@
   <macro name="collection">
     <choose>
       <if is-numeric="collection-number">
-        <text variable="collection-title" prefix=" coll.&#160;«&#160;" suffix="&#160;»"/>
+        <group prefix=" coll.">
+          <text variable="collection-title" quotes="true"/>
+        </group>
         <text variable="collection-number" prefix=", n˚&#160;"/>
       </if>
       <else>
-        <text variable="collection-title" prefix=" coll.&#160;«&#160;" suffix="&#160;»"/>
+        <group prefix=" coll.">
+          <text variable="collection-title" quotes="true"/>
+        </group>
       </else>
     </choose>
   </macro>
@@ -369,7 +374,7 @@
                 <text variable="title" form="short" font-style="italic" suffix="..."/>
               </if>
               <else>
-                <text variable="title" text-case="capitalize-first" form="short" prefix="«&#160;" suffix="...&#160;»" font-style="normal"/>
+                <text variable="title" quotes="true" text-case="capitalize-first" form="short" suffix="..." font-style="normal"/>
               </else>
             </choose>
             <text term="cited" font-style="italic" suffix="."/>

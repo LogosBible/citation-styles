@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-GB">
   <info>
     <title>National Archives of Australia</title>
     <id>http://www.zotero.org/styles/national-archives-of-australia</id>
@@ -9,9 +9,10 @@
       <name>Tim Sherratt</name>
       <email>tim@discontents.com.au</email>
     </author>
+    <category citation-format="note"/>
     <summary>National Archives of Australia - simple citations</summary>
-    <updated>2008-06-04T09:36:09+00:00</updated>
-    <rights>This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/</rights>
+    <updated>2012-09-09T21:58:08+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <citation>
     <layout>
@@ -26,7 +27,7 @@
     <layout suffix=".">
       <group delimiter=", " prefix="National Archives of Australia: ">
         <text variable="archive_location"/>
-        <text variable="title" prefix="‘" suffix="’"/>
+        <text variable="title" quotes="true"/>
         <date variable="issued">
           <date-part name="year"/>
         </date>
