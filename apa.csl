@@ -432,10 +432,10 @@
     </sort>
     <layout>
       <group suffix=".">
-        <group delimiter=". " suffix=" ">
+        <group delimiter=". " prefix=" ">
           <text macro="author"/>
           <text macro="issued"/>
-          <text macro="title" prefix=" "/>
+          <text macro="title"/>
           <text macro="container"/>
         </group>
         <text macro="locators"/>
