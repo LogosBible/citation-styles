@@ -44,7 +44,7 @@
   <macro name="editor">
     <names variable="editor">
       <name and="text" name-as-sort-order="first" sort-separator=", " initialize-with="." delimiter-precedes-last="never" delimiter=", "/>
-      <label form="short" text-case="lowercase" prefix=", " suffix="." strip-periods="true"/>
+      <label form="short" text-case="lowercase" prefix=", "/>
     </names>
   </macro>
   <macro name="pages">
@@ -132,7 +132,7 @@
         </group>
       </if>
       <else>
-        <text variable="edition" suffix=""/>
+        <text variable="edition"/>
       </else>
     </choose>
   </macro>
@@ -212,8 +212,8 @@
             <group suffix=".">
               <text macro="title" suffix=", "/>
               <text macro="edition"/>
+              <text macro="collection" suffix=", "/>
               <text macro="publisher"/>
-              <text macro="collection" prefix=", "/>
             </group>
           </else-if>
           <else-if type="chapter paper-conference entry-dictionary entry-encyclopedia" match="any">

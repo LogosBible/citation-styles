@@ -154,7 +154,7 @@
           </if>
         </choose>
         <date variable="issued">
-          <date-part name="year" form="long" suffix=""/>
+          <date-part name="year" form="long"/>
         </date>
       </if>
       <else>
@@ -462,6 +462,7 @@
       <key variable="citation-number"/>
     </sort>
     <layout>
+      <text variable="citation-number" suffix=". "/>
       <group>
         <choose>
           <if type="book">

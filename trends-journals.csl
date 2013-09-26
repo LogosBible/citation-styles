@@ -79,7 +79,7 @@
   <macro name="author">
     <names variable="author">
       <name sort-separator=", " initialize-with="." name-as-sort-order="all" delimiter=", " and="text"/>
-      <label form="short" prefix=", " text-case="capitalize-first" suffix="." strip-periods="true"/>
+      <label form="short" prefix=", " text-case="capitalize-first"/>
       <et-al font-style="italic"/>
       <substitute>
         <names variable="editor"/>
@@ -240,7 +240,7 @@
         <else-if type="patent">
           <text macro="issued"/>
           <text macro="title" suffix=", "/>
-          <text variable="number" prefix="U.S. Patent "/>
+          <text variable="number" prefix=" "/>
         </else-if>
         <!-- Generic/Fallback Formats -->
         <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">

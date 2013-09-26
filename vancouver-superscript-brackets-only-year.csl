@@ -62,7 +62,7 @@
       <if variable="URL">
         <group prefix="[" suffix="]" delimiter=" ">
           <text term="cited" text-case="lowercase"/>
-          <date variable="accessed" suffix="">
+          <date variable="accessed">
             <date-part name="year"/>
             <date-part name="month" prefix=" " form="short" strip-periods="true"/>
             <date-part name="day" prefix=" "/>
@@ -75,7 +75,7 @@
     <choose>
       <if type="article-journal article-magazine" match="any">
         <group suffix=" ">
-          <text variable="container-title" form="short"/>
+          <text variable="container-title" form="short" strip-periods="true"/>
           <choose>
             <if variable="URL">
               <text term="internet" prefix=" [" suffix="]" text-case="capitalize-first"/>
@@ -107,7 +107,7 @@
       <if is-numeric="edition">
         <group delimiter=" ">
           <number variable="edition" form="ordinal"/>
-          <text term="edition" form="short" suffix="." strip-periods="true"/>
+          <text term="edition" form="short"/>
         </group>
       </if>
       <else>
