@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SCRIPT_DIR=`dirname "$0"`
-MAKE_JSON="/Users/tom.philpot/External/citeproc-js/makejson.py"
+MAKE_JSON="$SCRIPT_DIR/../scripts/makejson.py"
 OUTPUT_DIR="$1"
 
 pushd "$SCRIPT_DIR/.."
