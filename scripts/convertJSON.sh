@@ -19,4 +19,6 @@ do
     fi
 done
 
+GIT_UPSTREAM_REVISION=`git rev-parse upstream/master`
+echo "CSL JSON files generated from upstream/master revision $GIT_UPSTREAM_REVISION on `date`" | tee "$OUTPUT_DIR/csl_revision_info.txt"
 popd
