@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-US">
   <info>
     <title>Carcinogenesis</title>
     <id>http://www.zotero.org/styles/carcinogenesis</id>
-	<link href="http://www.zotero.org/styles/carcinogenesis" rel="self"/>
-	<link href="http://www.oxfordjournals.org/our_journals/carcin/for_authors/general.html" rel="documentation"/>
-	<link href="http://www.zotero.org/styles/trends-journals" rel="template"/>
-	<contributor>
-		<name>Jonas Bergan</name>
-		<uri>http://www.zotero.org/jonas.bergan</uri>
-	</contributor>
+    <link href="http://www.zotero.org/styles/carcinogenesis" rel="self"/>
+    <link href="http://www.zotero.org/styles/trends-journals" rel="template"/>
+    <link href="http://www.oxfordjournals.org/our_journals/carcin/for_authors/general.html" rel="documentation"/>
+    <contributor>
+      <name>Jonas Bergan</name>
+      <uri>http://www.zotero.org/jonas.bergan</uri>
+    </contributor>
     <category citation-format="numeric"/>
     <category field="biology"/>
     <category field="medicine"/>
+    <issn>0143-3334</issn>
+    <eissn>1460-2180</eissn>
     <summary>Style for the "Carcinogenesis" journal</summary>
     <updated>2013-09-24T13:04:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
