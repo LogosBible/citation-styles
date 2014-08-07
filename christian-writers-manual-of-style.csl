@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-US">
+<!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>Christian Writer's Manual of Style</title>
+    <id>http://www.zotero.org/styles/christian-writers-manual-of-style</id>
+    <link href="http://www.zotero.org/styles/christian-writers-manual-of-style" rel="self"/>
+    <link href="http://www.zondervan.com/the-christian-writer-s-manual-of-style" rel="documentation"/>
+    <author>
+      <name>Tom Philpot</name>
+      <email>tom.philpot@faithlife.com</email>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="humanities"/>
+    <summary>The Christian Writer's Manual of Style</summary>
+    <updated>2014-08-07T22:28:46+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <macro name="editor">
+    <names variable="editor">
+      <label form="short" suffix=" "/>
+      <name and="text" initialize="false" initialize-with=". "/>
+    </names>
+  </macro>
+  <macro name="author">
+    <names variable="author">
+      <name and="text" initialize="false" initialize-with=". "/>
+      <label form="short" prefix=", " suffix="." text-case="capitalize-first" strip-periods="true"/>
+      <substitute>
+        <names variable="editor"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="access">
+    <text variable="URL"/>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+        <text variable="title" text-case="title" font-style="italic"/>
+      </if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="publisher">
+    <text variable="publisher-place" suffix=": "/>
+    <group delimiter=", ">
+      <text variable="publisher"/>
+      <text macro="issued"/>
+    </group>
+  </macro>
+  <macro name="volume">
+    <text variable="volume" prefix="vol. "/>
+  </macro>
+  <macro name="pages">
+    <label variable="page" form="short" suffix=" "/>
+    <text variable="page"/>
+  </macro>
+  <macro name="book-container">
+    <group delimiter=", ">
+      <group delimiter=" ">
+        <text term="in"/>
+        <text variable="container-title" font-style="italic"/>
+      </group>
+      <text macro="editor"/>
+    </group>
+  </macro>
+  <macro name="issued">
+    <date variable="issued" delimiter=" ">
+      <date-part name="year"/>
+    </date>
+  </macro>
+  <macro name="edition">
+    <choose>
+      <if is-numeric="edition">
+        <group delimiter=" ">
+          <number variable="edition" form="ordinal"/>
+          <text value="ed" suffix="."/>
+        </group>
+      </if>
+      <else>
+        <text variable="edition" suffix="."/>
+      </else>
+    </choose>
+  </macro>
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout delimiter="," vertical-align="sup">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography second-field-align="margin" entry-spacing="0">
+    <layout suffix=".">
+      <text variable="citation-number" suffix="."/>
+      <text macro="author" suffix=", "/>
+      <choose>
+        <if type="thesis">
+          <group delimiter=", ">
+            <text variable="genre"/>
+            <text variable="publisher"/>
+            <text macro="issued"/>
+          </group>
+        </if>
+        <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+          <group delimiter=", " suffix=".">
+            <text macro="title"/>
+            <text macro="editor"/>
+            <text macro="edition"/>
+            <text macro="volume"/>
+          </group>
+          <group delimiter=", " prefix=" ">
+            <text macro="publisher" prefix=" (" suffix=")"/>
+            <text variable="volume" prefix="vol. "/>
+          </group>
+        </else-if>
+        <else-if type="article-journal article-magazine article">
+          <group delimiter=", ">
+            <text variable="title" text-case="title" quotes="true"/>
+            <group delimiter=" ">
+              <text variable="container-title" font-style="italic" form="short"/>
+              <text variable="volume" font-weight="normal"/>
+              <group>
+                <text macro="issued" prefix="(" suffix=")"/>
+                <choose>
+                  <if match="any" variable="volume issue">
+                    <text value=":"/>
+                  </if>
+                  <else>
+                    <text value=","/>
+                  </else>
+                </choose>
+              </group>
+              <text variable="page"/>
+            </group>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <text variable="container-title" form="short" font-style="italic"/>
+            <text macro="issued"/>
+            <text variable="volume"/>
+            <text variable="page"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
