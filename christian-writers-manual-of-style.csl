@@ -13,7 +13,7 @@
     <category citation-format="numeric"/>
     <category field="humanities"/>
     <summary>The Christian Writer's Manual of Style</summary>
-    <updated>2014-08-08T14:41:33+00:00</updated>
+    <updated>2014-08-08T16:23:14+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="editor">
@@ -89,8 +89,81 @@
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <layout delimiter="," vertical-align="sup">
-      <text variable="citation-number"/>
+    <layout delimiter="," suffix=".">
+      <text macro="author" suffix=", "/>
+      <choose>
+        <if type="thesis">
+          <group delimiter=", ">
+            <text variable="genre"/>
+            <text variable="publisher"/>
+            <text macro="issued"/>
+          </group>
+        </if>
+        <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+          <group delimiter=", " suffix=",">
+            <text macro="title"/>
+            <text macro="editor"/>
+            <group delimiter=" ">
+              <text variable="collection-title"/>
+              <text variable="collection-number"/>
+            </group>
+            <text macro="edition"/>
+            <group>
+              <text variable="number-of-volumes"/>
+              <text term="volume" form="short" plural="true" prefix=" "/>
+            </group>
+          </group>
+          <group delimiter=",">
+            <group delimiter=", " prefix=" ">
+              <text macro="publisher" prefix=" (" suffix=")"/>
+              <group prefix=" ">
+                <text macro="volume"/>
+                <choose>
+                  <if match="all" variable="volume page">
+                    <text value=":"/>
+                  </if>
+                </choose>
+                <text variable="page"/>
+              </group>
+            </group>
+          </group>
+        </else-if>
+        <else-if type="article-journal article-magazine article">
+          <group delimiter=", ">
+            <text variable="title" text-case="title" quotes="true"/>
+            <group delimiter=" ">
+              <text variable="container-title" font-style="italic" form="short"/>
+              <group delimiter=", ">
+                <text variable="volume" font-weight="normal"/>
+                <group>
+                  <text term="issue" form="short" suffix=" "/>
+                  <text variable="issue"/>
+                </group>
+              </group>
+              <group>
+                <text macro="issued" prefix="(" suffix=")"/>
+                <choose>
+                  <if match="any" variable="volume issue">
+                    <text value=":"/>
+                  </if>
+                  <else>
+                    <text value=","/>
+                  </else>
+                </choose>
+              </group>
+              <text variable="page"/>
+            </group>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <text variable="container-title" form="short" font-style="italic"/>
+            <text macro="issued"/>
+            <text variable="volume"/>
+            <text variable="page"/>
+          </group>
+        </else>
+      </choose>
     </layout>
   </citation>
   <bibliography entry-spacing="0">
@@ -117,17 +190,19 @@
               <text variable="number-of-volumes"/>
               <text term="volume" form="short" plural="true" prefix=" "/>
             </group>
+          </group>
+          <group delimiter=",">
             <group delimiter=", " prefix=" ">
               <text macro="publisher" prefix=" (" suffix=")"/>
-            </group>
-            <group prefix=" ">
-              <text macro="volume"/>
-              <choose>
-                <if match="all" variable="volume page">
-                  <text value=":"/>
-                </if>
-              </choose>
-              <text variable="page"/>
+              <group prefix=" ">
+                <text macro="volume"/>
+                <choose>
+                  <if match="all" variable="volume page">
+                    <text value=":"/>
+                  </if>
+                </choose>
+                <text variable="page"/>
+              </group>
             </group>
           </group>
         </else-if>
