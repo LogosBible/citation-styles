@@ -13,7 +13,7 @@
     <category citation-format="numeric"/>
     <category field="humanities"/>
     <summary>The Christian Writer's Manual of Style</summary>
-    <updated>2014-08-08T04:28:10+00:00</updated>
+    <updated>2014-08-08T05:43:20+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="editor">
@@ -52,7 +52,7 @@
     </group>
   </macro>
   <macro name="volume">
-    <text variable="volume"/>
+    <text variable="volume" prefix=" "/>
   </macro>
   <macro name="pages">
     <label variable="page" form="short" suffix=" "/>
@@ -108,19 +108,39 @@
           <group delimiter=", " suffix=".">
             <text macro="title"/>
             <text macro="editor"/>
+            <group delimiter=" ">
+              <text variable="collection-title"/>
+              <text variable="collection-number"/>
+            </group>
             <text macro="edition"/>
-            <text macro="volume"/>
+            <group>
+              <text variable="number-of-volumes"/>
+              <text term="volume" form="short" plural="true" prefix=" "/>
+            </group>
           </group>
           <group delimiter=", " prefix=" ">
             <text macro="publisher" prefix=" (" suffix=")"/>
           </group>
+          <text macro="volume"/>
+          <choose>
+            <if match="all" variable="volume page">
+              <text value=":"/>
+            </if>
+          </choose>
+          <text variable="page"/>
         </else-if>
         <else-if type="article-journal article-magazine article">
           <group delimiter=", ">
             <text variable="title" text-case="title" quotes="true"/>
             <group delimiter=" ">
               <text variable="container-title" font-style="italic" form="short"/>
-              <text variable="volume" font-weight="normal"/>
+              <group delimiter=", ">
+                <text variable="volume" font-weight="normal"/>
+                <group>
+                  <text term="issue" form="short" suffix=" "/>
+                  <text variable="issue"/>
+                </group>
+              </group>
               <group>
                 <text macro="issued" prefix="(" suffix=")"/>
                 <choose>
