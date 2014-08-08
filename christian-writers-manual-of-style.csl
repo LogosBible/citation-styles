@@ -13,7 +13,7 @@
     <category citation-format="numeric"/>
     <category field="humanities"/>
     <summary>The Christian Writer's Manual of Style</summary>
-    <updated>2014-08-07T22:28:46+00:00</updated>
+    <updated>2014-08-08T04:28:10+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="editor">
@@ -52,7 +52,7 @@
     </group>
   </macro>
   <macro name="volume">
-    <text variable="volume" prefix="vol. "/>
+    <text variable="volume"/>
   </macro>
   <macro name="pages">
     <label variable="page" form="short" suffix=" "/>
@@ -93,9 +93,8 @@
       <text variable="citation-number"/>
     </layout>
   </citation>
-  <bibliography second-field-align="margin" entry-spacing="0">
+  <bibliography entry-spacing="0">
     <layout suffix=".">
-      <text variable="citation-number" suffix="."/>
       <text macro="author" suffix=", "/>
       <choose>
         <if type="thesis">
@@ -114,7 +113,6 @@
           </group>
           <group delimiter=", " prefix=" ">
             <text macro="publisher" prefix=" (" suffix=")"/>
-            <text variable="volume" prefix="vol. "/>
           </group>
         </else-if>
         <else-if type="article-journal article-magazine article">
