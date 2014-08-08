@@ -32,5 +32,6 @@ do
 done
 
 GIT_UPSTREAM_REVISION=`git rev-parse upstream/master`
-echo "CSL JSON files generated from upstream/master revision $GIT_UPSTREAM_REVISION on `date`" | tee "$OUTPUT_DIR/csl_revision_info.txt"
+GIT_THIRDPARTY_REVISION=`git rev-parse master`
+echo "CSL JSON files generated from upstream/master revision $GIT_UPSTREAM_REVISION, master revision $GIT_THIRDPARTY_REVISION on `date`" | tee "$OUTPUT_DIR/csl_revision_info.txt"
 popd
