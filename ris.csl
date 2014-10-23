@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
 <!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
   <info>
@@ -103,18 +103,9 @@
     </choose>
   </macro>
   <macro name="translator">
-    <choose>
-      <if type="book" match="any">
-        <names variable="translator">
-          <name sort-separator=", " name-as-sort-order="all" prefix="A4  - " delimiter="&lt;br /&gt;A4  - " delimiter-precedes-last="always"/>
-        </names>
-      </if>
-      <else>
-        <names variable="translator">
-          <name sort-separator=", " name-as-sort-order="all" prefix="TA  - " delimiter="&lt;br /&gt;TA  - " delimiter-precedes-last="always"/>
-        </names>
-      </else>
-    </choose>
+    <names variable="translator">
+      <name sort-separator=", " name-as-sort-order="all" prefix="TA  - " delimiter="&lt;br /&gt;TA  - " delimiter-precedes-last="always"/>
+    </names>
   </macro>
   <macro name="title">
     <text variable="title" prefix="TI  - "/>
