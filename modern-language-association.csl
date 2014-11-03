@@ -158,9 +158,19 @@
         <choose>
           <if variable="URL DOI" match="any">
             <text variable="source" prefix=" " suffix=". " font-style="italic"/>
-            <text value="Web" prefix=" "/>
+            <choose>
+              <if variable="medium">
+                <text variable="medium" prefix=" "/>
+              </if>
+              <else>
+                <text value="Web" prefix=" "/>
+              </else>
+            </choose>
             <text prefix=". " suffix="." macro="access"/>
           </if>
+          <else-if variable="medium">
+            <text variable="medium" prefix=" "/>
+          </else-if>
           <else>
             <text value="Print" prefix=" "/>
           </else>
