@@ -289,14 +289,14 @@
     <group delimiter=". ">
       <text macro="interviewer"/>
       <text variable="medium" text-case="capitalize-first"/>
+      <choose>
+        <if variable="title" match="none"/>
+        <else-if type="thesis"/>
+        <else>
+          <text variable="genre" text-case="capitalize-first"/>
+        </else>
+      </choose>
     </group>
-    <choose>
-      <if variable="title" match="none"/>
-      <else-if type="thesis"/>
-      <else>
-        <text variable="genre" text-case="capitalize-first"/>
-      </else>
-    </choose>
   </macro>
   <macro name="issue">
     <choose>
