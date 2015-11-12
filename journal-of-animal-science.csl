@@ -66,12 +66,6 @@
       <text variable="publisher-place"/>
     </group>
   </macro>
-  <macro name="issued">
-    <date variable="issued" delimiter=" ">
-      <date-part name="month" prefix=" "/>
-      <date-part name="day" prefix=" "/>
-    </date>
-  </macro>
   <macro name="pages">
     <label plural="never" suffix=" " variable="page" form="short"/>
     <text variable="page"/>
@@ -97,7 +91,7 @@
       </else>
     </choose>
   </macro>
-  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true">
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-givenname="true">
     <sort>
       <key macro="year-date"/>
       <key macro="author-short"/>

@@ -17,7 +17,7 @@
     <contributor>
       <name>Charles Parnot</name>
       <uri>http://twitter.com/cparnot</uri>
-      <email>charles@mekentosj.com</email>
+      <email>charles.parnot@gmail.com</email>
     </contributor>
     <category citation-format="author-date"/>
     <category field="biology"/>
@@ -50,22 +50,6 @@
         <text variable="title"/>
       </substitute>
     </names>
-  </macro>
-  <macro name="access">
-    <choose>
-      <if variable="URL">
-        <text value="Available at:" suffix=" "/>
-        <text variable="URL"/>
-        <group prefix=" [" suffix="]">
-          <text term="accessed" text-case="capitalize-first" suffix=" "/>
-          <date variable="accessed">
-            <date-part name="month" suffix=" "/>
-            <date-part name="day" suffix=", "/>
-            <date-part name="year"/>
-          </date>
-        </group>
-      </if>
-    </choose>
   </macro>
   <macro name="title">
     <text variable="title"/>

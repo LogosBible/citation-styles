@@ -12,7 +12,7 @@
     <link href="http://www.springer.com/cda/content/document/cda_downloaddocument/Key_Style_Points_1.0.pdf" rel="documentation"/>
     <author>
       <name>Charles Parnot</name>
-      <email>charles@mekentosj.com</email>
+      <email>charles.parnot@gmail.com</email>
       <uri>http://twitter.com/cparnot</uri>
     </author>
     <category citation-format="numeric"/>
@@ -67,27 +67,6 @@
           </if>
           <else>
             <text macro="title"/>
-          </else>
-        </choose>
-      </substitute>
-    </names>
-  </macro>
-  <macro name="author-short">
-    <names variable="author">
-      <name form="short" and="symbol" delimiter=", " initialize-with=". "/>
-      <substitute>
-        <names variable="editor"/>
-        <names variable="translator"/>
-        <choose>
-          <if type="report">
-            <text variable="publisher"/>
-            <text variable="title" form="short" font-style="italic"/>
-          </if>
-          <else-if type="bill book graphic legal_case legislation motion_picture song" match="any">
-            <text variable="title" form="short" font-style="italic"/>
-          </else-if>
-          <else>
-            <text variable="title" form="short" quotes="true"/>
           </else>
         </choose>
       </substitute>
@@ -243,36 +222,6 @@
       </if>
     </choose>
   </macro>
-  <macro name="issued-sort">
-    <choose>
-      <if type="article-journal bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="none">
-        <date variable="issued">
-          <date-part name="year"/>
-          <date-part name="month"/>
-          <date-part name="day"/>
-        </date>
-      </if>
-      <else>
-        <date variable="issued">
-          <date-part name="year"/>
-        </date>
-      </else>
-    </choose>
-  </macro>
-  <macro name="issued-year">
-    <choose>
-      <if variable="issued">
-        <date variable="issued">
-          <date-part name="year"/>
-        </date>
-        <text variable="year-suffix"/>
-      </if>
-      <else>
-        <text term="no date" form="short"/>
-        <text variable="year-suffix" prefix="-"/>
-      </else>
-    </choose>
-  </macro>
   <macro name="edition">
     <choose>
       <if is-numeric="edition">
@@ -333,19 +282,6 @@
       </else-if>
     </choose>
   </macro>
-  <macro name="citation-locator">
-    <group>
-      <choose>
-        <if locator="chapter">
-          <label variable="locator" form="long" text-case="capitalize-first"/>
-        </if>
-        <else>
-          <label variable="locator" form="short"/>
-        </else>
-      </choose>
-      <text variable="locator" prefix=" "/>
-    </group>
-  </macro>
   <macro name="container">
     <group>
       <choose>
@@ -404,7 +340,7 @@
       <text variable="citation-number"/>
     </layout>
   </citation>
-  <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="6" et-al-use-last="true" entry-spacing="0" line-spacing="2">
+  <bibliography second-field-align="flush" et-al-min="8" et-al-use-first="6" et-al-use-last="true" entry-spacing="0" line-spacing="2">
     <layout>
       <text variable="citation-number" suffix=". "/>
       <group suffix=".">

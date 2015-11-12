@@ -19,7 +19,7 @@
     </contributor>
     <contributor>
       <name>Charles Parnot</name>
-      <email>charles@mekentosj.com</email>
+      <email>charles.parnot@gmail.com</email>
       <uri>http://twitter.com/cparnot</uri>
     </contributor>
     <category citation-format="author-date"/>
@@ -81,18 +81,6 @@
         </group>
       </if>
     </choose>
-  </macro>
-  <macro name="editor">
-    <names variable="editor">
-      <name name-as-sort-order="first" and="text" sort-separator=", " delimiter=", " delimiter-precedes-last="always"/>
-      <label form="short" prefix=", "/>
-    </names>
-  </macro>
-  <macro name="translator">
-    <names variable="translator">
-      <name name-as-sort-order="first" and="text" sort-separator=", " delimiter=", " delimiter-precedes-last="always"/>
-      <label form="short" prefix=", " plural="never"/>
-    </names>
   </macro>
   <macro name="recipient">
     <choose>
@@ -285,9 +273,9 @@
     <choose>
       <if type="article-newspaper">
         <group prefix=", " delimiter=", ">
-          <group>
-            <text variable="edition" suffix=" "/>
-            <text term="edition" prefix=" "/>
+          <group delimiter=" ">
+            <text variable="edition"/>
+            <text term="edition"/>
           </group>
           <group>
             <text term="section" form="short" suffix=" "/>

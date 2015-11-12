@@ -157,16 +157,16 @@
       <else>
         <choose>
           <if variable="URL DOI" match="any">
-            <text variable="source" prefix=" " suffix=". " font-style="italic"/>
+            <text variable="source" prefix=" " suffix="." font-style="italic"/>
             <choose>
               <if variable="medium">
                 <text variable="medium" prefix=" "/>
               </if>
               <else>
-                <text value="Web" prefix=" "/>
+                <text value="Web." prefix=" "/>
               </else>
             </choose>
-            <text prefix=". " suffix="." macro="access"/>
+            <text prefix=" " suffix="." macro="access"/>
           </if>
           <else-if variable="medium">
             <text variable="medium" prefix=" "/>
