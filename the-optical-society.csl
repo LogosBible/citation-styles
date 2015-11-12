@@ -88,11 +88,6 @@
       <text variable="collection-number" prefix="No. "/>
     </group>
   </macro>
-  <macro name="access">
-    <group>
-      <text variable="URL"/>
-    </group>
-  </macro>
   <macro name="personal-communication">
     <group prefix="personal communication (" suffix=")">
       <text macro="day-date"/>
@@ -126,7 +121,7 @@
   <bibliography entry-spacing="0" second-field-align="flush">
     <layout suffix=".">
       <text variable="citation-number" suffix=". "/>
-      <text macro="author" prefix=" " suffix=", "/>
+      <text macro="author" suffix=", "/>
       <choose>
         <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <group delimiter=" ">

@@ -5,7 +5,7 @@
     <title>Nephrology Dialysis Transplantation</title>
     <id>http://www.zotero.org/styles/nephrology-dialysis-transplantation</id>
     <link href="http://www.zotero.org/styles/nephrology-dialysis-transplantation" rel="self"/>
-    <link href="http://www.zotero.org/styles/digestive-and-liver-disease" rel="template"/>
+    <link href="http://www.zotero.org/styles/elsevier-vancouver" rel="template"/>
     <link href="http://www.oxfordjournals.org/our_journals/ndt/for_authors/general.html#REFERENCES" rel="documentation"/>
     <author>
       <name>Giles Walters</name>
@@ -136,8 +136,10 @@
       <text macro="title" suffix=". "/>
       <choose>
         <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
-          <text macro="edition" prefix=" " suffix=" "/>
-          <text macro="publisher2" prefix=" "/>
+          <group delimiter=" " prefix=" ">
+            <text macro="edition"/>
+            <text macro="publisher2"/>
+          </group>
         </if>
         <else-if type="chapter paper-conference" match="any">
           <group prefix=" " suffix=". ">

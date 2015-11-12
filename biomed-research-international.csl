@@ -31,7 +31,7 @@
   <macro name="editor">
     <names variable="editor">
       <name initialize-with="." delimiter=", " and="text" name-as-sort-order="all" sort-separator=", "/>
-      <label form="short" prefix=" (" suffix=".)" strip-periods="true"/>
+      <label form="short" prefix=" (" suffix=")"/>
     </names>
   </macro>
   <macro name="title">
@@ -47,9 +47,6 @@
   <macro name="publisher">
     <text variable="publisher" font-style="italic"/>
     <text variable="publisher-place" prefix=", "/>
-  </macro>
-  <macro name="access">
-    <text variable="URL"/>
   </macro>
   <macro name="page">
     <group>
@@ -68,7 +65,7 @@
   <bibliography entry-spacing="0" second-field-align="flush">
     <layout suffix=".">
       <text variable="citation-number" suffix="."/>
-      <text macro="author" prefix=" " suffix=": "/>
+      <text macro="author" suffix=": "/>
       <choose>
         <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <group delimiter=" ">
