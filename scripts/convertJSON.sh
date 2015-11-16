@@ -18,7 +18,7 @@ fi
 
 pushd "$SCRIPT_DIR/.."
 
-for STYLE in apa bibtex chicago-fullnote-bibliography din-1505-2 harvard1 modern-language-association refer-bibix ris society-of-biblical-literature-fullnote-bibliography turabian-fullnote-bibliography american-anthropological-association modern-humanities-research-association american-political-science-association american-sociological-association unified-style-linguistics pontifical-biblical-institute pontifical-athenaeum-regina-apostolorum christian-writers-manual-of-style
+for STYLE in apa bibtex chicago-fullnote-bibliography din-1505-2 harvard1 modern-language-association refer-bibix ris society-of-biblical-literature-fullnote-bibliography society-of-biblical-literature-fullnote-bibliography-1st-ed turabian-fullnote-bibliography american-anthropological-association modern-humanities-research-association american-political-science-association american-sociological-association unified-style-linguistics pontifical-biblical-institute pontifical-athenaeum-regina-apostolorum christian-writers-manual-of-style
 do
     echo "Converting $STYLE from CSL to JSON"
     python "$MAKE_JSON" $STYLE.csl > $STYLE.json
