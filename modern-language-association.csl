@@ -160,7 +160,7 @@
             <text variable="source" prefix=" " suffix="." font-style="italic"/>
             <choose>
               <if variable="medium">
-                <text variable="medium" prefix=" "/>
+                <text variable="medium" prefix=" " suffix="."/>
               </if>
               <else>
                 <text value="Web." prefix=" "/>
